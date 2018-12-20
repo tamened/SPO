@@ -1,0 +1,45 @@
+<script language="javascript" type="text/javascript">
+$(document).ready(function() {
+   window.setTimeout(doModifyCal, 150);
+});
+function doModifyCal() {
+  var str="x";
+  var urlString = urlencode(location.href);  // only needed for Display to Edit form link option
+  // get the 2nd div of class "ms-acal-rootdiv"
+  var CalData = $('div.ms-acal-rootdiv:eq(1)');
+  // remove all "12:00 am - 12:00 am" from single item days
+  $("div.ms-acal-time", CalData).remove();
+  // remove all "12:00 am" from multi-item days
+  $('div.ms-acal-sdiv', CalData).each(function() {
+    if($('div', this).length == 0) {
+      str=$(this).html();
+      str=str.replace("12:00 am","");
+      $(this).html(str);
+    };
+  });
+ // get rid of "12:00 am - 12:00 am" in tool tip when you hover 
+ $('div[title]', CalData).each(function() {         
+    str=$(this).attr("title");
+    str=str.replace("12:00 am - 12:00 am ","");
+    $(this).attr("title",str);
+  });
+  // optional - change item links to go to Edit form instead of Display form
+  var Links = $("a", CalData);  
+  Links.each(function() {
+    str=$(this).attr("href");
+    str=str.replace("DispForm","EditForm");
+    str=str + '&Source=' + urlString;
+    $(this).attr("href",str).removeAttr("onclick");
+  });
+};
+// only needed for Display to Edit form link option
+function urlencode(link) {
+  link = encodeURI(link);
+  link = link.replace('+', '%2B');
+  link = link.replace('%20', '+');
+  link = link.replace('*', '%2A');
+  link = link.replace('/', '%2F');
+  link = link.replace('@', '%40');
+  return link;
+}
+</script>
