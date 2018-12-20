@@ -1,0 +1,8 @@
+//Edit page
+//Insert a script editor webpart
+//Paste code and save
+
+<style type="text/css">
+.ms-promlink-body {width:100%}
+.ms-promlink-header {visibility:hidden}
+</style>
