@@ -1,0 +1,16 @@
+//Edit page
+//Insert a script editor webpart 
+//Paste below code in the webpart and save
+
+<style> 
+/**** Small Calendar ***/ 
+.ms-acal-item{height: 10px !important;} 
+.ms-acal-sdiv, 
+.ms-acal-mdiv, 
+.ms-acal-ctrlitem, 
+.ms-acal-month-weeksel, 
+.ms-acal-title, 
+.ms-acal-vlink a{display:none;}
+.ms-acal-month-top span{display: none;} 
+.ms-acal-summary-itemrow TD DIV{height: 16px !important;} 
+</style>
