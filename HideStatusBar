@@ -1,0 +1,9 @@
+//Edit page
+//Insert script editor webpart
+//paste code and save
+
+<style>
+#pageStatusBar{
+    display:none!important;
+}
+</style>
